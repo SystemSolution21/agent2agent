@@ -51,7 +51,7 @@ class GreetingAgentExecutor(AgentExecutor):
 
         Creates an instance of the GreetingAgent that this executor will manage.
         """
-        super().__init__()  # It's good practice to call super().__init__()
+        super().__init__()
         self.agent = GreetingAgent()
 
     async def execute(self, context: RequestContext, event_queue: EventQueue) -> None:
