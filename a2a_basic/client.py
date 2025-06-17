@@ -83,7 +83,7 @@ async def main() -> None:
             httpx_client=httpx_client,
             agent_card=public_agent_card,
         )
-        print(f"Successfully instantiated A2A client: {a2a_client}")
+        print(f"Successfully instantiated A2A client:\n{a2a_client}")
 
         # Send message to A2A server
         message_payload = Message(
@@ -103,7 +103,7 @@ async def main() -> None:
                 message=message_payload,
             ),
         )
-        print(f"Sending message to A2A server: {request}")
+        print(f"Sending message to A2A server:\n{request}")
 
         try:
             response: SendMessageResponse = await a2a_client.send_message(
@@ -123,7 +123,7 @@ async def main() -> None:
                 data=response_dict, path="result.parts.0.text"  # expected TextPart
             )
             if text:
-                print(f"Agent message: {text}")
+                print(f"Agent message:\n{text}")
             else:
                 print("No text found in response")
 
